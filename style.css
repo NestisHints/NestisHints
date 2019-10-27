@@ -1,0 +1,128 @@
+body {
+  overflow: hidden;
+  background-color: #303048;
+}
+
+canvas {
+  position: absolute;
+  left: 50%;
+  margin-left: -30vh;
+  top: 0px;
+}
+
+.menu {
+  position: absolute;
+  height: 5vh;
+  width: 60vh;
+  left: 50%;
+  margin-left: -30vh;
+  background: url("resources/bar_hor_tile.png");
+  background-size: contain;
+  background-repeat: repeat-x;
+  font-family: 'Oswald', cursive;
+}
+
+.top {
+  top: 0px;
+}
+
+.bottom {
+  bottom: 0px;
+}
+
+.menu-text {
+  position: relative;
+  height: 5vh;
+  width: 20vh;
+  float: left;
+  color: #fff;
+  text-align: center;
+  line-height: 5vh;
+  font-size: 4vh;
+}
+
+.btn-l-l {
+  background: url("resources/btn_l_large.png");
+  height: 5vh;
+  width: 12vh;
+  border: 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  outline: 0px;
+
+  font-family: "Font Awesome 5 Free", "Oswald", cursive;
+  color: #fff;
+  font-size: 3vh;
+}
+
+.btn-l-s {
+  background: url("resources/btn_l_small.png");
+  height: 5vh;
+  width: 5vh;
+  border: 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  outline: 0px;
+
+  font-family: "Font Awesome 5 Free", "Oswald", cursive;
+  color: #fff;
+  font-size: 3vh;
+}
+
+.btn-r-l {
+  background: url("resources/btn_r_large.png");
+  height: 5vh;
+  width: 12vh;
+  border: 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  outline: 0px;
+
+  font-family: "Font Awesome 5 Free", "Oswald", cursive;
+  color: #fff;
+  font-size: 3vh;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-r-s {
+  background: url("resources/btn_r_small.png");
+  height: 5vh;
+  width: 5vh;
+  border: 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  outline: 0px;
+
+  font-family: "Font Awesome 5 Free", "Oswald", cursive;
+  color: #fff;
+  font-size:3vh;
+}
+
+.hidden {
+  display: none;
+}
+
+.bg-left {
+  position: absolute;
+  width: calc(50vw - 30vh);
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  background: url("img/links.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-right {
+  position: absolute;
+  width: calc(50vw - 30vh);
+  height: 100vh;
+  right: 0px;
+  top: 0px;
+  background: url("img/rechts.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

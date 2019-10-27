@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Puzzle</title>
+    <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <form class="hidden">
+      <label>Easy</label>
+      <input type="range" id="scale" value="3" min="3" max="6" step="1">
+      <label>Difficult</label>
+    </form>
+
+    <div class="gamemenu">
+
+    </div>
+
+    <canvas id="puzzle"></canvas>
+
+    <div class="menu top">
+      <div class="menu-text" id="score">Score: 0</div>
+      <div class="menu-text" id="time">Time: 0</div>
+      <div class="menu-text" id="clicks">Clicks: 0</div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <div class="menu bottom">
+      <input type="button" name="restart" value="Restart" class="btn-r-l" onclick="resetGame()">
+      <input type="button" name="sound" value="&#xf028;" class="btn-l-s fa">
+      <input type="button" name="music" value="&#xf001;" class="btn-r-s fa">
+    </div>
+
+    <div class="bg-left">
+
+    </div>
+
+    <div class="bg-right">
+
+    </div>
+  </body>
+</html>
