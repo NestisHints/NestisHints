@@ -1,25 +1,14 @@
 var context = document.getElementById('puzzle').getContext('2d');
 var canvas = document.getElementById('puzzle');
-var music = new Audio('resources/music.mp3');
 
 var img = new Image();
-img.src = 'img/puzzle.jpg';
 
-canvas.style.background = "#000";
+canvas.style.background = "#fff";
 canvas.height = window.innerHeight;
-canvas.width = (window.innerHeight / 100) * 60;
 
-img.addEventListener('load', drawTiles, false);
+var imgs = [['img/game1.png', 60, 3], ['img/game2.png', 100, 4], ['img/game3.png', 100, 5], ['img/game4.png', 60, 6]];
 
-var boardSizeX = document.getElementById('puzzle').width;
-var boardSizeY = document.getElementById('puzzle').height;
-var tileCount = document.getElementById('scale').value;
-
-var tileSizeX = boardSizeX / tileCount;
-var tileSizeY = boardSizeY / tileCount;
-
-var imageTileX = img.width / tileCount;
-var imageTileY = img.height / tileCount;
+var boardSizeX, boardSizeY, tileCount, tileSizeX, tileSizeY, imageTileX, imageTileY;
 
 var clickLoc = new Object;
 clickLoc.x = 0;
@@ -31,31 +20,10 @@ emptyLoc.y = 0;
 
 var solved = false;
 
-var time = 0;
-var clicks = 0;
-var timeInterval;
-
-var firstClick = true;
-
 var boardParts;
-setBoard();
-
-function playMusic() {
-  music.addEventListener('ended', function() {
-      this.currentTime = 0;
-      this.play();
-  }, false);
-  music.play();
-}
-
-//CHANGE DIFFICULTY
-document.getElementById('scale').onchange = function() {
-  tileCount = this.value;
-  tileSizeX = boardSizeX / tileCount;
-  tileSizeY = boardSizeY / tileCount;
-  setBoard();
-  drawTiles();
-};
+//setBoard();
+var currentGame = 0;
+gameSetup(currentGame);
 
 //TILE CLICK
 document.getElementById('puzzle').onclick = function(e) {
@@ -71,18 +39,11 @@ document.getElementById('puzzle').onclick = function(e) {
 
   //Check if the player has won
   if (solved) {
-    setTimeout(function() {alert("You solved it!");}, 500);
-  }
-
-  //Update # of clicks
-  clicks++;
-  updateText('clicks', clicks);
-
-  //TEMPORARY! REMOVE WHEN MENU IS MADE
-  if (firstClick) {
-    startGame();
-    playMusic();
-    firstClick = false;
+    setTimeout(function() {
+      alert("View the full image here: https://nestishints.github.io/" + imgs[currentGame][0]);
+      currentGame++;
+      gameSetup(currentGame);
+    }, 500);
   }
 };
 
@@ -151,44 +112,22 @@ function checkSolved() {
   solved = flag;
 }
 
-//START TIMER ON GAMESTART
-function startGame() {
-  timeInterval = setInterval(function(){time++;updateText('time', time);}, 1000);
-}
+function gameSetup(game) {
+  img.src = imgs[game][0];
+  tileCount = imgs[game][2];
+  canvas.width = window.innerHeight * (imgs[game][1] / 100);
 
-//UPDATE UI
-function updateText(textField, newText) {
-  document.getElementById(textField).innerHTML = textField + ": " + newText;
-}
+  var newmargin = imgs[game][1] / 2;
+  canvas.style.marginLeft = "-" + newmargin + "vh";
 
-//RESET GAME
-function resetGame() {
-  clearInterval(timeInterval);
-  time = 0;
-  updateText('time', time);
-  clicks = 0;
-  updateText('clicks', clicks);
+  boardSizeX = document.getElementById('puzzle').width;
+  boardSizeY = document.getElementById('puzzle').height;
+  tileSizeX = boardSizeX / tileCount;
+  tileSizeY = boardSizeY / tileCount;
+
+  imageTileX = img.width / tileCount;
+  imageTileY = img.height / tileCount;
+
+  img.addEventListener('load', drawTiles, false);
   setBoard();
-  drawTiles();
-  firstClick = true;
-}
-
-function GameMenu(menuType) {
-  var menu = document.getElementById("gamemenu");
-
-  switch (menuType) {
-    case 0:
-      //HIDE
-      menu.style.display = "none";
-      break;
-    case 1:
-      //SHOW MAIN MENU
-      menu.style.display = "block";
-      break;
-    default:
-      //HIDE
-      menu.style.display = "none";
-      break;
-
-  }
 }
