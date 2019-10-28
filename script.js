@@ -6,7 +6,7 @@ var img = new Image();
 canvas.style.background = "#fff";
 canvas.height = window.innerHeight;
 
-var imgs = [['img/game1.png', 60, 3], ['img/game2.png', 100, 4], ['img/game3.png', 100, 5], ['img/game4.png', 60, 6]];
+var imgs = [['game1.png', 60, 3], ['game2.png', 100, 4], ['game3.png', 100, 5], ['game4.png', 60, 6]];
 
 var boardSizeX, boardSizeY, tileCount, tileSizeX, tileSizeY, imageTileX, imageTileY;
 
