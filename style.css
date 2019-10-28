@@ -16,7 +16,7 @@ canvas {
   height: 100vh;
   left: 0px;
   top: 0px;
-  background: url("img/links.png");
+  background: url("links.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -28,7 +28,7 @@ canvas {
   height: 100vh;
   right: 0px;
   top: 0px;
-  background: url("img/rechts.png");
+  background: url("rechts.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
